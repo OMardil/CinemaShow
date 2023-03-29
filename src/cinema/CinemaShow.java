@@ -16,7 +16,6 @@ public class CinemaShow {
 	private double[][] seats;
 	
 	public CinemaShow(String movieName, LocalDate movieDate, LocalTime movieTime) {
-		super();
 		this.movieName = movieName;
 		this.movieDate = movieDate;
 		this.movieTime = movieTime;
