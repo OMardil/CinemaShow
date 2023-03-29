@@ -30,11 +30,22 @@ public class CinemaShow {
 		}
 	}
 	
+	public static boolean checkArray(int row, int col, double[][] arr) {
+	    if (row >= 0 && row < arr.length && col >= 0 && col < arr[row].length) {
+	        // row and column indices are valid for the given array
+	        return true;
+	    } else {
+	        // row and/or column indices are invalid for the given array
+	        return false;
+	    }
+	}
+	
 	
 	public boolean sellSeat(int row, int column) {
 		
-		if (row < 0 || row > this.seats.length || column < 0 || column > this.seats[row].length)
+		if (!CinemaShow.checkArray(row, column, this.seats)){
 			return false;
+		}
 		
 		if (this.seats[row][column] == 0) {
 			this.seats[row][column] = CinemaShow.assignPrice(this.soldTickets, 
@@ -105,6 +116,8 @@ public class CinemaShow {
 		Mario.sellSeat(0, 0);
 		Mario.sellSeat(1, 1);
 		Mario.sellSeat(1, 2);
+		Mario.sellSeat(50, 2);
+		
 		
 		System.out.println(Mario);
 
